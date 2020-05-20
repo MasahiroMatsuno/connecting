@@ -4,66 +4,25 @@
   </div>
 </header>
 
-<div class = "tweets">
-  <div class="tweet">
-    <div class="tweet__name">
-      Gypsy’s mile cafe
-    </div>
+<div class="tweets">
+  <% @tweets.each do |tweet| %>
 
-    <div class="tweet__image">
-      <img width="310" height="232" src="http://kojincafe.com/wp-content/uploads/2020/04/E7F3FE80-E277-4DBE-B334-546D66D1CA41-310x232.jpeg" class="attachment-medium colorbox-13811  wp-post-image" alt="E7F3FE80-E277-4DBE-B334-546D66D1CA41">                </a>
-    </div>
-        
-    <div class="tweet__text">
-      群馬県前橋市　
-      スタッフ募集中 未経験歓迎 緑豊かな自然の中で一緒に働きましょう
-    </div>
-  </div>
+    <div class="tweet">
+      <div class="tweet__name">
+        <%= tweet.name %>
+      </div>
 
- <div class="tweet">
-    <div class="tweet__name">
-      Gypsy’s mile cafe
+     <div class="tweet__image" style="background-image: url(<%= tweet.image %>);"> 
+        <%# <%= image_tag 'arrow_top.png' %> 
+      </div>
+      
+      <div class="tweet__text">
+        <%= simple_format(tweet.text) %>
+      </div>
     </div>
-
-    <div class="tweet__image">
-      <img width="310" height="232" src="http://kojincafe.com/wp-content/uploads/2020/04/E7F3FE80-E277-4DBE-B334-546D66D1CA41-310x232.jpeg" class="attachment-medium colorbox-13811  wp-post-image" alt="E7F3FE80-E277-4DBE-B334-546D66D1CA41">                </a>
-    </div>
-        
-    <div class="tweet__text">
-      群馬県前橋市　
-      スタッフ募集中 未経験歓迎 緑豊かな自然の中で一緒に働きましょう
-    </div>
-  </div>
-
-   <div class="tweet">
-    <div class="tweet__name">
-      Gypsy’s mile cafe
-    </div>
-
-    <div class="tweet__image">
-      <img width="310" height="232" src="http://kojincafe.com/wp-content/uploads/2020/04/E7F3FE80-E277-4DBE-B334-546D66D1CA41-310x232.jpeg" class="attachment-medium colorbox-13811  wp-post-image" alt="E7F3FE80-E277-4DBE-B334-546D66D1CA41">                </a>
-    </div>
-        
-    <div class="tweet__text">
-      群馬県前橋市　
-      スタッフ募集中 未経験歓迎 緑豊かな自然の中で一緒に働きましょう
-    </div>
-  </div>
-
-   <div class="tweet">
-    <div class="tweet__name">
-      Gypsy’s mile cafe
-    </div>
-
-    <div class="tweet__image">
-      <img width="310" height="232" src="http://kojincafe.com/wp-content/uploads/2020/04/E7F3FE80-E277-4DBE-B334-546D66D1CA41-310x232.jpeg" class="attachment-medium colorbox-13811  wp-post-image" alt="E7F3FE80-E277-4DBE-B334-546D66D1CA41">                </a>
-    </div>
-        
-    <div class="tweet__text">
-      群馬県前橋市　
-      スタッフ募集中 未経験歓迎 緑豊かな自然の中で一緒に働きましょう
-    </div>
-  </div>
- 
-
+  <% end %>
 </div>
+
+
+
+

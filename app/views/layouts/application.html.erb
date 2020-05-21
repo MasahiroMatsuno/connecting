@@ -10,6 +10,23 @@
   </head>
 
   <body>
+    <header class= "header">
+      <div class="header__logo">
+        <%= link_to "Conneciting ", tweets_path, class: "header__logo--text" %>
+        <p class = "header__logo--sub">〜＃田舎と繋がろう〜</p>
+        <% if user_signed_in? %>
+          <div class="header__right">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn" %>
+            <%= link_to "掲載申し込み", new_tweet_path , class: "header__right--btn" %>
+          </div>
+        <% else %>
+          <div class="right">
+            <%= link_to "ログイン", new_user_session_path, class: "header__right--btn" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "header__right--btn" %>
+          </div>
+        <% end %>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

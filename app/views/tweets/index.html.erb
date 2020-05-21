@@ -1,26 +1,8 @@
-<header class= "header">
-  <div class = "header__logo">Conneciting 〜＃田舎と繋がろう〜
-    <img width="80" height="80" src="http://kojincafe.com/wp-content/themes/ver201412_theme/images/mbbt_entry.png" alt="無料掲載お申込み" class="entry">
-  </div>
-</header>
-
 <div class="tweets">
   <% @tweets.each do |tweet| %>
-
-    <div class="tweet">
-      <div class="tweet__name">
-        <%= tweet.name %>
-      </div>
-
-     <div class="tweet__image" style="background-image: url(<%= tweet.image %>);"> 
-        <%# <%= image_tag 'arrow_top.png' %> 
-      </div>
-      
-      <div class="tweet__text">
-        <%= simple_format(tweet.text) %>
-      </div>
-    </div>
+    <%= render partial: "tweet", locals: { tweet: tweet } %>
   <% end %>
+  <%= paginate(@tweets) %>
 </div>
 
 

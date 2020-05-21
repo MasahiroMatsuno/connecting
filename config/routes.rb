@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/index'
   devise_for :users
   root to: 'users#index'
   post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
@@ -7,4 +6,5 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :comments, only: :create
   end
+  resources :users, only: :show
 end

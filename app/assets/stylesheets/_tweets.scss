@@ -32,7 +32,7 @@ body {
 .header {
   height :120px;
   width: 100%;
-  background-color: lightgreen;
+  background-color: whitesmoke;
   &__logo {
     font-size: 30px;
     // line-height: 120px;
@@ -57,7 +57,7 @@ body {
     // height: 30px;
     text-decoration: none;
     // color: whitesmoke;
-    background-color: #2ecc71;
+    background-color: grey;
     background-image: url(images/icon_entry.png);
     background-repeat: no-repeat;
     background-position: 20px 10px;
@@ -100,4 +100,23 @@ body {
     margin: 10px 30px;
   }
 }
+.top {
+  background-image: url(https://images.unsplash.com/photo-1558627273-0afee68c8efc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
+  height: 80vh;
+  width: 100％;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-decoration: none;
+}
 
+.top p {
+  font-size: 80px;
+  color: black;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  padding-top: 60px;
+  
+}

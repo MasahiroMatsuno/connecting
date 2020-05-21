@@ -16,6 +16,7 @@
         <p class = "header__logo--sub">〜＃田舎と繋がろう〜</p>
         <% if user_signed_in? %>
           <div class="header__right">
+            <p><%= link_to "マイページへ", user_path(current_user), class: "header__right--btn"%></p>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn" %>
             <%= link_to "掲載申し込み", new_tweet_path , class: "header__right--btn" %>
           </div>

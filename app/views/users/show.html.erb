@@ -35,3 +35,21 @@
       <%= link_to "show", user_path(user) %>
     </p>
   <% end %>
+
+  <div class="contents row">
+  <p><%= @realname %>さんの投稿一覧</p>
+
+  <% @tweets.each do |tweet| %>
+    <div class="tweet__name">
+      <%= tweet.name %>
+    </div>
+    
+    <div class="tweet__image" style="background-image: url(<%= tweet.image %>);"> 
+      <%# <%= image_tag 'arrow_top.png' %> 
+    </div>
+  
+    <div class="tweet__text">
+      <%= simple_format(tweet.text) %>
+    </div>
+  <% end %>
+</div>

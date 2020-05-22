@@ -1,4 +1,5 @@
 <h2>ユーザー詳細ページ</h2>
+<%# フォローフォロワー機能実装 %>
 <p><%= "id: #{@user.id}" %></p>
 <p><%= "フォロー数: #{@user.follower.count}" %></p>
 <p><%= "フォロワー数: #{@user.followed.count}" %></p>
@@ -36,20 +37,22 @@
     </p>
   <% end %>
 
+  <%# 投稿一覧 %>
   <div class="contents row">
-  <p><%= @realname %>さんの投稿一覧</p>
+    <p><%= @realname %>さんの投稿一覧</p>
 
-  <% @tweets.each do |tweet| %>
-    <div class="tweet__name">
-      <%= tweet.name %>
-    </div>
+    <% @tweets.each do |tweet| %>
+      <div class="tweet__name">
+        <%= tweet.name %>
+      </div>
+      
+      <div class="tweet__image" style="background-image: url(<%= tweet.image %>);"> 
+        <%# <%= image_tag 'arrow_top.png' %> 
+      </div>
     
-    <div class="tweet__image" style="background-image: url(<%= tweet.image %>);"> 
-      <%# <%= image_tag 'arrow_top.png' %> 
-    </div>
-  
-    <div class="tweet__text">
-      <%= simple_format(tweet.text) %>
-    </div>
-  <% end %>
-</div>
+      <div class="tweet__text">
+        <%= simple_format(tweet.text) %>
+      </div>
+    <% end %>
+　</div>
+

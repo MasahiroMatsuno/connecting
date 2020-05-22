@@ -38,6 +38,14 @@
   <% end %>
 
 <%= link_to "投稿一覧へ", tweets_path %>
+
+<%# #いいね一覧 %>
+<h3>いいねしている投稿</h3>
+  <% @user.liked_tweets.each do |tweet| %>
+    <%= tweet.user.email %>
+    <%# <%= tweet.content %> 
+  <% end %>
+
 <%# 投稿一覧 %>
 <div class="contents row">
   <p><%= @realname %>さんの投稿一覧</p>

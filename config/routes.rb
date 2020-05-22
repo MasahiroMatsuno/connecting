@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   resources :tweets do
     resources :comments, only: :create
+    resources :likes, only: [:create, :destroy]
   end
   resources :users, :only => [:index, :show]
   resources :messages, :only => [:create]

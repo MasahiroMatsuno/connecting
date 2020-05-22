@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_044811) do
+ActiveRecord::Schema.define(version: 2020_05_22_084123) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2020_05_22_044811) do
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_entries_on_room_id"
     t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "tweet_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tweet_id"], name: "index_likes_on_tweet_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,6 +85,8 @@ ActiveRecord::Schema.define(version: 2020_05_22_044811) do
 
   add_foreign_key "entries", "rooms"
   add_foreign_key "entries", "users"
+  add_foreign_key "likes", "tweets"
+  add_foreign_key "likes", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
 end

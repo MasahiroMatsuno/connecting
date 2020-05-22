@@ -14,6 +14,10 @@ class User < ApplicationRecord
   #DM
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  #いいね
+  has_many :tweets, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_tweets, through: :likes, source: :tweet
   
   # ユーザーをフォローする
   def follow(user_id)
@@ -28,6 +32,11 @@ class User < ApplicationRecord
   # フォローしていればtrueを返す
   def following?(user)
     following_user.include?(user)
+  end
+
+  #いいねしているかどうかの判定
+  def already_liked?(tweet)
+    self.likes.exists?(tweet_id: tweet.id)
   end
 end
 

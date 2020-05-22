@@ -6,10 +6,11 @@
         <%= link_to '記事詳細', "/tweets/#{tweet.id}", method: :get %>
       </li>
       <li>
-     
+     <% if user_signed_in? %>
         <%# <%= link_to "投稿者ページ", user_path(tweet.user.id) %> 
          <%= link_to "投稿者", user_path(tweet.user) %>
     　 </li>
+      <% end %>
     </ul>
   </div>
   <div class="tweet__name">

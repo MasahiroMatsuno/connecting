@@ -21,7 +21,7 @@
       <% else %>
         <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
       <% end %>
-      <%= link_to "show", user_path(user) %>
+      <%= link_to "もっと見る", user_path(user) %>
     </p>
   <% end %>
 <h3>フォロワー一覧</h3>
@@ -33,26 +33,49 @@
       <% else %>
         <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
       <% end %>
-      <%= link_to "show", user_path(user) %>
+      <%= link_to "もっと見る", user_path(user) %>
     </p>
   <% end %>
 
-  <%# 投稿一覧 %>
-  <div class="contents row">
-    <p><%= @realname %>さんの投稿一覧</p>
+<%= link_to "投稿一覧へ", tweets_path %>
+<%# 投稿一覧 %>
+<div class="contents row">
+  <p><%= @realname %>さんの投稿一覧</p>
 
-    <% @tweets.each do |tweet| %>
-      <div class="tweet__name">
-        <%= tweet.name %>
-      </div>
-      
-      <div class="tweet__image" style="background-image: url(<%= tweet.image %>);"> 
-        <%# <%= image_tag 'arrow_top.png' %> 
-      </div>
+  <% @tweets.each do |tweet| %>
+    <div class="tweet__name">
+      <%= tweet.name %>
+    </div>
     
-      <div class="tweet__text">
-        <%= simple_format(tweet.text) %>
-      </div>
+    <div class="tweet__image" style="background-image: url(<%= tweet.image %>);"> 
+      <%# <%= image_tag 'arrow_top.png' %> 
+    </div>
+  
+    <div class="tweet__text">
+      <%= simple_format(tweet.text) %>
+    </div>
+  <% end %>
+</div>
+
+<%# #DM機能 %>
+<h1>ユーザー詳細</h1>
+
+<h2><%= @user.email %></h2>
+
+<% if @user.id == current_user.id %>
+
+<% else %>
+  <% if @isRoom == true %>
+    <p><a href="/rooms/<%= @roomId %>">メッセージを送る</a>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, :value=> @user.id %>
+      <% end %>
+      <%= f.submit "チャットを始める" %>
     <% end %>
-　</div>
+  <% end %>
+<% end %>
+
+<%= link_to "ユーザー 一覧", users_path %>
 

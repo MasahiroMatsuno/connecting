@@ -65,5 +65,10 @@ gem 'compass-rails', '3.1.0'
 gem 'sprockets', '3.7.2'
 gem 'devise'
 gem 'kaminari'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
+
 gem 'carrierwave'
 gem 'mini_magick'
+

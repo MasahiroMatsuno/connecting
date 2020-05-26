@@ -2,20 +2,28 @@
   <div class="more">
     <span><%= image_tag 'arrow_top.png'%><span>
     <ul class="more_list">
-      <li>
+      <%# <li>
         <%= link_to '記事詳細', "/tweets/#{tweet.id}", method: :get %>
-      </li>
-      <li>
-     <% if user_signed_in? %>
+      <%# </li>  %>
+        <li>
+      <% if user_signed_in? %>
         <%# <%= link_to "投稿者ページ", user_path(tweet.user.id) %> 
-         <%= link_to "投稿者", user_path(tweet.user) %>
-    　 </li>
+         <%= link_to "投稿者", user_path(tweet.user), class: "btn btn-info" %>
+        </li>
       <% end %>
     </ul>
   </div>
-  <div class="tweet__name">
-    <%= tweet.name %>
-  </div>
+   <% if user_signed_in? %>
+    <div class="tweet__name">
+      <%= link_to tweet.name, "/tweets/#{tweet.id}", method: :get %>
+      <%# <%= tweet.name %> 
+    </div>
+   <% else %>
+    <div class="tweet__name">
+      <%= tweet.name %> 
+    </div>
+  <% end %>
+
 
   <div class = 'tweet__image'>
     <%# <div class="tweet__image" style="background-image: url(<%= tweet.image %>

@@ -55,9 +55,12 @@
       <%= tweet.name %>
     </div>
     
-    <div class="tweet__image" style="background-image: url(<%= tweet.image %>);"> 
-      <%# <%= image_tag 'arrow_top.png' %> 
+    <div class="tweet__image">
+      <%= image_tag tweet.image.to_s %>
     </div>
+    <%# <div class="tweet__image" style="background-image: url(<%= tweet.image %>
+      <%# <%= image_tag 'arrow_top.png' %> 
+    <%# </div> %>
   
     <div class="tweet__text">
       <%= simple_format(tweet.text) %>
@@ -74,7 +77,7 @@
 
 <% else %>
   <% if @isRoom == true %>
-    <p><a href="/rooms/<%= @roomId %>">メッセージを送る</a>
+    <p><a href="/rooms/<%= @roomId %>" class = "btn btn-info">メッセージを送る</a>
   <% else %>
     <%= form_for @room do |f| %>
       <%= fields_for @entry do |e| %>

@@ -3,10 +3,10 @@
     <div class="more">
       <ul class="more_list">
         <li>
-          <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
+          <%= link_to '編集', "/tweets/#{@tweet.id}/edit", class: "btn btn-info" , method: :get %>
         </li>
         <li>
-          <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
+          <%= link_to '削除', "/tweets/#{@tweet.id}", class: "btn btn-warning" , method: :delete %>
         </li>
       </ul>
     </div>
@@ -15,8 +15,9 @@
       <%= @tweet.name %>
     </div>
 
-    <div class="tweet__image__show" style="background-image: url(<%= @tweet.image %>);"> 
+    <div class="tweet__image">
       <%# <%= image_tag 'arrow_top.png' %> 
+      <%= image_tag @tweet.image.to_s %>
     </div>
     
     <div class="tweet__text">
@@ -24,16 +25,18 @@
     </div>
   </div>
 
-  <h3>いいね件数: <%= @tweet.likes.count %></h3>
-  <% if current_user.already_liked?(@tweet) %>
-    <%= button_to 'いいねを取り消す', tweet_like_path(@tweet), method: :delete %>
-  <% else %>
-    <%= button_to 'いいね', tweet_likes_path(@tweet) %>
-  <% end %>
-  <h2>いいねしたユーザー</h2>
-  <% @tweet.liked_users.each do |user| %>
-    <li><%= user.email %></li>
-  <% end %>
+  <div class = "likes">
+    <h4>いいね件数: <%= @tweet.likes.count %></h4>
+    <% if current_user.already_liked?(@tweet) %>
+      <%= button_to 'いいねを取り消す', tweet_like_path(@tweet), method: :delete %>
+    <% else %>
+      <%= button_to 'いいね', tweet_likes_path(@tweet) %>
+    <% end %>
+    <h4>いいねしたユーザー</h4>
+    <% @tweet.liked_users.each do |user| %>
+      <li><%= user.realname %></li>
+    <% end %>
+  </div>
 
   <div class="container">
     <% if current_user %>
@@ -57,5 +60,7 @@
       <% end %>
     </div>
   </div>
+
+  
 </div>
 

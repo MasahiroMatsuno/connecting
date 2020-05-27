@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   resources :users, :only => [:index, :show]
+  post '/users/guest_sign_in', to: 'users#new_guest'
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]
 end

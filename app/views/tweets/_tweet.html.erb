@@ -8,7 +8,27 @@
         <li>
       <% if user_signed_in? %>
         <%# <%= link_to "投稿者ページ", user_path(tweet.user.id) %> 
-         <%= link_to "投稿者", user_path(tweet.user), class: "btn btn-info" %>
+
+
+        <div class="dropdown">
+          <!-- 切替ボタンの設定 -->
+          <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            もっと詳しく
+            <span class="caret"></span>
+          </button>
+          <!-- ドロップメニューの設定 -->
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+            <li><%= link_to "投稿者", user_path(tweet.user)%> </li>
+            <li> <%= link_to '記事詳細', "/tweets/#{tweet.id}", method: :get %> </li>
+            <%# <% if user_signed_in? && current_user.id == @tweet.user_id %> 
+              <%# <li><%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
+              <%# <li><%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete</li>  %>
+            <%# <% end %> 
+          </ul>
+        </div><!-- /.dropdown -->
+
+
+         <%# <%= link_to "投稿者", user_path(tweet.user), class: "btn btn-info" %> 
         </li>
       <% end %>
     </ul>

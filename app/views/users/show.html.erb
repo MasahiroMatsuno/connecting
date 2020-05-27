@@ -1,110 +1,103 @@
-<h3>ユーザーページ</h3>
-
-<div class="dropdown">
-  <!-- 切替ボタンの設定 -->
-  <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    もっと詳しく
-    <span class="caret"></span>
-  </button>
-  <!-- ドロップメニューの設定 -->
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a href="#">メニュー1</a></li>
-    <li><a href="#">メニュー2</a></li>
-    <li><a href="#">メニュー3</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">その他リンク</a></li>
-  </ul>
-</div><!-- /.dropdown -->
-
-
-
-<%# フォローフォロワー機能実装 %>
-<p><%= "ネーム: #{@user.realname}" %></p>
-<p><%= "フォロー数: #{@user.follower.count}" %></p>
-<p><%= "フォロワー数: #{@user.followed.count}" %></p>
-<% unless @user == current_user %>
-  <% if current_user.following?(@user) %>
-    <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
-  <% else %>
-    <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
-  <% end %>
-<% end %>
-<p></p>
-
-<h4>フォロー</h4>
-  <% @user.following_user.where.not(id: current_user.id).each do |user| %>
-    <p>
-      <%= link_to "氏名: #{user.realname}", user_path(user) %>
-      <% if current_user.following?(user) %>
-        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
-      <% else %>
-        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
-      <% end %>
-    </p>
-  <% end %>
-
-<h4>フォロワー</h4>
-  <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
-    <p>
-      <%= link_to "氏名: #{user.realname}", user_path(user) %>
-      <% if current_user.following?(user) %>
-        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
-      <% else %>
-        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
-      <% end %>
-    </p>
-  <% end %>
-
-<%= link_to "投稿一覧へ", tweets_path, class: "btn btn-info"%>
-
-<%# #いいね一覧 %>
-<h4>いいねしている投稿</h4>
-  <% @user.liked_tweets.each do |tweet| %>
-    <%= tweet.user.email %>
-    <%# <%= tweet.content %> 
-  <% end %>
-
-<%# 投稿一覧 %>
-<div class="contents">
-  <p><%= @realname %>さんの投稿一覧</p>
-
-  <% @tweets.each do |tweet| %>
-    <div class="tweet__name">
-      <%= tweet.name %>
-    </div>
-    
-    <div class="tweet__image">
-      <%= image_tag tweet.image.to_s %>
-    </div>
-    <%# <div class="tweet__image" style="background-image: url(<%= tweet.image %>
-      <%# <%= image_tag 'arrow_top.png' %> 
-    <%# </div> %>
+<div class = "user_show">
+    <%# #DM機能 %>
   
-    <div class="tweet__text">
-      <%= simple_format(tweet.text) %>
-    </div>
-  <% end %>
-</div>
+    <h1>ユーザー詳細画面</h1>
 
-<%# #DM機能 %>
-<h2>ユーザー詳細</h2>
+    <h3><%= "name: #{@user.realname}" %></h3>
 
-<h3><%= @user.realname %></h3>
+    <% if @user.id == current_user.id %>
 
-<% if @user.id == current_user.id %>
-
-<% else %>
-  <% if @isRoom == true %>
-    <p><a href="/rooms/<%= @roomId %>" class = "btn btn-info">メッセージを送る</a>
-  <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, :value=> @user.id %>
+    <% else %>
+      <% if @isRoom == true %>
+        <p><a href="/rooms/<%= @roomId %>" class = "btn btn-info">メッセージを送る</a>
+      <% else %>
+        <%= form_for @room do |f| %>
+          <%= fields_for @entry do |e| %>
+            <%= e.hidden_field :user_id, :value=> @user.id %>
+          <% end %>
+          <%= f.submit "DMを始める" %>
+        <% end %>
       <% end %>
-      <%= f.submit "チャットを始める" %>
     <% end %>
-  <% end %>
-<% end %>
 
-<%= link_to "ユーザー 一覧へ戻る", users_path %>
 
+
+
+    <%# フォローフォロワー機能実装 %>
+    <%# <p><%= "ネーム: #{@user.realname}" %>
+    <p><%= "フォロー数: #{@user.follower.count}" %></p>
+    <p><%= "フォロワー数: #{@user.followed.count}" %></p>
+    <% unless @user == current_user %>
+      <% if current_user.following?(@user) %>
+        <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
+      <% else %>
+        <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+      <% end %>
+    <% end %>
+    <p></p>
+
+  <div class = "users">
+    <div class = "users__follow">
+      <h4>フォロー</h4>
+        <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+          <p>
+            <%= link_to "name: #{user.realname}", user_path(user) %>
+
+            <%# <% if current_user.following?(user) %>
+              <%# <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %> 
+            <%# <% else %> 
+              <%# <%= link_to 'フォローする', follow_path(user.id), method: :POST %> 
+            <%# <% end %> 
+          </p>
+        <% end %>
+    </div>
+
+
+    <div class = "userss__follower">
+      <h4>フォロワー</h4>
+        <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+          <p>
+            <%= link_to "name: #{user.realname}", user_path(user) %>
+            <%# <% if current_user.following?(user) %> 
+              <%# <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %> 
+            <%# <% else %> 
+              <%# <%= link_to 'フォローする', follow_path(user.id), method: :POST %> 
+            <%# <% end %> 
+          </p>
+        <% end %>
+    </div>
+  </div>
+
+
+
+    <%# #いいね一覧 %>
+    <h4>いいねしている投稿</h4>
+      <% @user.liked_tweets.each do |tweet| %>
+        <%# <%= tweet.user.realname %> 
+        <%= simple_format(tweet.name) %> 
+        <%# <%= tweet.content %> 
+      <% end %>
+
+    <%# 投稿一覧 %>
+    <p><%= @realname %>さんの投稿一覧</p>
+      <div class="contents__tweets">
+        <% @tweets.each do |tweet| %>
+          <div class="contents__tweets__tweet">
+            <div class="tweet__name">
+              <%= simple_format(tweet.name) %>
+            </div>
+            
+            <div class="tweet__image">
+              <%= image_tag tweet.image.to_s %>
+            </div>
+          
+            <div class="tweet__text">
+              <%= simple_format(tweet.text) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    <%= link_to "ユーザー 一覧へ戻る", users_path , class: "btn btn-info"%>
+    <%= link_to "投稿一覧へ戻る", tweets_path, class: "btn btn-info"%>
+</div>

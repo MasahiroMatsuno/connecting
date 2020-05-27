@@ -1,19 +1,26 @@
-<% if user_signed_in? %>
-  <%= link_to "投稿一覧へ", tweets_path, class: "btn btn-info" %>
-  <h2>ユーザー</h2>
-  <% User.all.where.not(id: current_user.id).each do |user| %>
-    <p>
-      <%# <%= "id: #{user.id} email: #{user.email}" %> 
-      <%= link_to "氏名: #{user.realname}", user_path(user) %>
-      <% if current_user.following?(user) %>
-        <%= link_to 'フォローを外す', unfollow_path(user.id), method: :POST %>
-      <% else %>
-        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+<div class = "user-index">
+  <% if user_signed_in? %>
+    <div class = "user-index__btn">
+      <%= link_to "投稿一覧へ", tweets_path, class: "header__right--btn" %>
+    </div>
+     <h2>ユーザー</h2>
+    <div class = "user-index__name">
+      <% User.all.where.not(id: current_user.id).each do |user| %>
+        <p>
+          <%# <%= "id: #{user.id} email: #{user.email}" %> 
+          <%= link_to "氏名: #{user.realname}", user_path(user) , class: "user-index__name__show"%>
+          <% if current_user.following?(user) %>
+            <%= link_to 'フォローを外す', unfollow_path(user.id), class: "btn btn-primary active", method: :POST %>
+          <% else %>
+            <%= link_to 'フォローする', follow_path(user.id), class: "btn btn-primary active" , method: :POST%>
+          <% end %>
+          <%# <%= link_to "もっと見る", user_path(user) %> 
+        </p>
       <% end %>
-      <%# <%= link_to "もっと見る", user_path(user) %> 
-    </p>
+    </div>
   <% end %>
-<% end %>
+</div>
+
 
 <div class = "top">
   <%# <p>~自由に働こう~</p> %>

@@ -65,12 +65,12 @@ body {
     // background-color: grey;
     // background-position: 20px 10px;
     // color: #fff;
-    display: block;
-    margin-left: 20px;
     // text-align: center;
     // height: 50px;
     // line-height: 50px;
     // width: 100px;
+    display: block;
+    margin-left: 20px;
     display       : inline-block;
     border-radius : 5%;          /* 角丸       */
     font-size     : 12pt;        /* 文字サイズ */
@@ -109,6 +109,7 @@ body {
   width: 30%;
   height: 70vh;
   margin-left: 25px;
+  margin-bottom: 5px;
   // margin-top: 30px;
   // margin: 10px 10px;
   &__name {
@@ -236,3 +237,69 @@ form {
   }
 }
 
+// ユーザー詳細users/show
+.user_show {
+  padding: 50px;
+  text-align: center;
+}
+
+.user_show h1{
+  margin-bottom: 20px;
+}
+
+.user_show p{
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.users {
+  margin-left: 520px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  &__follow {
+    margin-right: 70px;
+    text-align: center;
+  }
+  &__follower {
+    text-align: center;
+  }
+}
+
+.contents__tweets {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  &__tweet {
+    width: 50%;
+  }
+}
+
+
+// ユーザー一覧users/index
+.user-index {
+  margin: 10px;
+  &__btn {
+    margin: 20px;
+  }
+  &__name {
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    &__show {
+      font-size: 16px;
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+}
+.user-index__name p {
+  margin-bottom: 30px;
+  width: 33.33%;
+}
+.active {
+  height: 30px;
+  margin-left: 5px;
+}

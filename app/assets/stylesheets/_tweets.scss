@@ -91,27 +91,79 @@ body {
     }
   }
 
+// トップページ(homes/index)
+.top {
+  background-image: url("tilt-lens-photography-of-black-wooden-table-988508.jpg");
+  height: 100vh;
+  width: 100％;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  &__text{
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+  }
+  &__text1 {
+    font-size: 60px;
+  }
+  &__text2 {
+    font-size: 40px;
+    text-align: center;
+  }
+  &__text3 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+.top__button {
+  display       : inline-block;
+  border-radius : 20%;          /* 角丸       */
+  font-size     : 16pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 16px 50px;   /* 余白       */
+  background    : #00ffff;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 3px 3px 8px #666666;  /* 影の設定 */
+  border        : 2px solid #00ffff;    /* 枠の指定 */
+}
+.top__button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #00ffff;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+
+
+
 
 // 投稿一覧(tweet/index)
 .tweets {
   width: 100%;
-  height: 100vh;
-  margin: 10px 10px;
+  // height: 100vh;
+  // margin: 10px 10px;
   padding-left: 50px;
   background-color: white;
   display: flex;
   flex-wrap: wrap;
+  background-image: url("email-pattern.png");
+  background-size: cover;
   // overflow: scroll;
 }
 
 .tweet {
-  background-color: white;
+  // background-color: white;
   width: 30%;
-  height: 70vh;
+  height: 100vh;
   margin-left: 25px;
-  margin-bottom: 5px;
-  // margin-top: 30px;
-  // margin: 10px 10px;
+  // margin-bottom: 5px;
   &__name {
     font-size: 20px;
     margin-bottom: 10px;
@@ -133,32 +185,6 @@ body {
   }
 }
 
-
-// #topページ(users/index)
-.top {
-  background-image: url(https://images.unsplash.com/photo-1558627273-0afee68c8efc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
-  height: 100vh;
-  width: 100％;
-  background-size: cover;
-  background-position: center;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-decoration: none;
-  a {
-    color: black;
-    text-decoration: none;
-  }
-}
-
-.top p {
-  font-size: 80px;
-  color: black;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  text-align: center;
-  padding-top: 60px;
-  
-}
 
 // 投稿詳細(tweets/show)
 .row {
@@ -279,7 +305,10 @@ form {
 
 // ユーザー一覧users/index
 .user-index {
-  margin: 10px;
+  background-image: url("email-pattern.png");
+  background-size: cover;
+  padding: 30px;
+  height: 100vh;
   &__btn {
     margin: 20px;
   }
@@ -303,3 +332,4 @@ form {
   height: 30px;
   margin-left: 5px;
 }
+

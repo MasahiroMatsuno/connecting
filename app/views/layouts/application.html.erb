@@ -19,15 +19,14 @@
             <%= link_to "掲載申し込み", new_tweet_path , class: "header__right--btn" %>
             <%= link_to "マイページへ", user_path(current_user), class: "header__right--btn"%>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn" %>
-            <%= link_to "トップページへ", users_path, class: "header__right--btn" %>
-              
+            <%# <%= link_to "トップページへ", root_path, class: "header__right--btn" %>   
           </div>
         <% else %>
           <div class="header__right">
-            <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path,  class: "header__right--btn", method: :post %>
+            <%= link_to 'お試しログイン（閲覧用）', users_guest_sign_in_path,  class: "header__right--btn", method: :post %>
             <%= link_to "ログイン", new_user_session_path, class: "header__right--btn" %>
             <%= link_to "新規登録", new_user_registration_path, class: "header__right--btn" %>
-            <%= link_to "トップページへ", users_path, class: "header__right--btn" %>
+            <%# <%= link_to "トップページへ", users_path, class: "header__right--btn" %> 
           </div>
         <% end %>
       </div>

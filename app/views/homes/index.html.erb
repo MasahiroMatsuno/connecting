@@ -1,0 +1,12 @@
+<div class ="top">
+  <div class = "top__text">
+    <div class = "top__text1">つなげる・つながる</div>
+    <div class = "top__text2">~人と人をつなぐ~ </div>
+    <div class = "top__text3">~店と店をつなぐ~</div>
+     <% if user_signed_in? %>
+      <%= link_to "投稿一覧へ ", tweets_path, class: "top__button" %>
+     <% else %>
+      <%= link_to 'お試しログイン（閲覧用）', users_guest_sign_in_path,  class: "top__button", method: :post %>
+    <% end %>
+  </div>
+</div>

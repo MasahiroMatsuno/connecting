@@ -150,18 +150,17 @@ body {
   // height: 100vh;
   // margin: 10px 10px;
   padding-left: 50px;
-  background-color: white;
   display: flex;
   flex-wrap: wrap;
-  background-image: url("email-pattern.png");
-  background-size: cover;
+  // background-image: url("email-pattern.png");
+  // background-size: cover;
   // overflow: scroll;
 }
 
 .tweet {
   // background-color: white;
   width: 30%;
-  height: 100vh;
+  height: 70vh;
   margin-left: 25px;
   // margin-bottom: 5px;
   &__name {
@@ -185,9 +184,18 @@ body {
   }
 }
 
+.index__search {
+  margin-left: 160px;
+  width: 90%;
+  // &__btn {
+  //   width: 60%;
+  //   margin: 5px;
+  // }
+}
 
 // 投稿詳細(tweets/show)
 .row {
+  
   margin-left: 140px;
   margin-top: 20px;
 }
@@ -210,6 +218,11 @@ body {
   margin-bottom: 30px;
 }
 
+.likes__btn {
+  width: 25%;
+}
+
+
 // 新規投稿・編集画面（_form.html）
 form {
   h3 {
@@ -225,6 +238,7 @@ form {
     border-radius: 5px;
     height: 30px;
     margin: 10px;
+    
   }
   textarea {
     width: 80%;
@@ -239,14 +253,14 @@ form {
     // color: black;
     // border: 0;
     // font-size: 18px;
-    margin: 20px;
+    // margin: 20px;
     // padding: 20px;
     height: 40px;
     display : inline-block;
     border-radius : 5%;          /* 角丸       */
     font-size : 1em;        /* 文字サイズ */
     text-align: center;      /* 文字位置   */
-    width: 300px;
+    width: 200px;
     padding : 12px 62px;   /* 余白       */
     background : whitesmoke;     /* 背景色     */
     color : black;     /* 文字色     */
@@ -262,6 +276,28 @@ form {
     }
   }
 }
+.form-group__image {
+  // display: none;
+}
+
+.search-form {
+  display: flex;
+  width: 70%;
+  text-align: center;
+}
+
+.search-input {
+  // width: 70%;
+}
+.search-btn {
+  width: 200px;
+  text-align: center;
+  height: 30px;
+  line-height: 3px;
+  /* width: 10px; */
+  margin: 5px;
+}
+
 
 // ユーザー詳細users/show
 .user_show {
@@ -299,6 +335,29 @@ form {
     flex-wrap: wrap;
   &__tweet {
     width: 50%;
+  }
+}
+
+.dm-btn {
+  font-size: 14px;
+  line-height: 14px;
+  margin: 10px;
+  height: 40px;
+  display : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  text-align: center;      /* 文字位置   */
+  width: 200px;
+  padding : 12px 62px;   /* 余白       */
+  background : whitesmoke;     /* 背景色     */
+  color : black;     /* 文字色     */
+  transition  : .3s;         /* なめらか変化 */
+  box-shadow  : 6px 6px 3px #666666;  /* 影の設定 */
+  border : 2px solid #999999;    /* 枠の指定 */
+  &:hover {
+    // background-color: lighten(gray, 10%);
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #999999;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
   }
 }
 

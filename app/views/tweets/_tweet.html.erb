@@ -35,7 +35,7 @@
   </div>
    <% if user_signed_in? %>
     <div class="tweet__name">
-      <%= link_to tweet.name, "/tweets/#{tweet.id}", method: :get %>
+      <%= link_to tweet.name, tweet_path(tweet.id), method: :get %>
       <%# <%= tweet.name %> 
     </div>
    <% else %>
@@ -50,7 +50,7 @@
     <%# <% if tweet.content.present? %>
       <%# <%= image_tag tweet.image.url, if tweet.image.present? %>
     <%# <% end %>   
-    <%= image_tag tweet.image.to_s %>
+    <%= image_tag tweet.image.to_s, :size =>'298x298'%>
   </div>
   
   <div class="tweet__text">
@@ -60,3 +60,8 @@
    (<%= tweet.liked_users.count %>)
 </div>
 
+<%# <%-if post.image.present?%>            
+  <%# <%= link_to post_path(post.id) do %>
+    <%# <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+  <%# <% end %>     
+<%# <% end %>  

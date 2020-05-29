@@ -9,13 +9,13 @@
 
     <% else %>
       <% if @isRoom == true %>
-        <p><a href="/rooms/<%= @roomId %>" class = "btn btn-info">メッセージを送る</a>
+        <p><a href="/rooms/<%= @roomId %>" class = "dm-btn">メッセージ</a>
       <% else %>
         <%= form_for @room do |f| %>
           <%= fields_for @entry do |e| %>
             <%= e.hidden_field :user_id, :value=> @user.id %>
           <% end %>
-          <%= f.submit "DMを始める" %>
+          <%= f.submit "メッセージ" %>
         <% end %>
       <% end %>
     <% end %>

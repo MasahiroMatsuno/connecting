@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :homes, only: :index
   resources :tweets do
     resources :comments, only: :create
+    collection do
+      get 'search'
+    end
     resources :likes, only: [:create, :destroy]
   end
   resources :users, :only => [:index, :show]

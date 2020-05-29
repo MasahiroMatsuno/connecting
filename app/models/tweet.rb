@@ -5,4 +5,9 @@ class Tweet < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   mount_uploader :image, ImageUploader
+
+  def self.search(search)
+    return Tweet.all unless search
+    Tweet.where('text LIKE(?)', "%#{search}%")
+  end
 end

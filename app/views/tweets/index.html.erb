@@ -10,8 +10,8 @@
   <% @tweets.each do |tweet| %>
     <%= render partial: "tweet", locals: { tweet: tweet } %>
   <% end %>
-  <%= paginate(@tweets) %>
 </div>
+<%= paginate(@tweets) %>
 
 
 

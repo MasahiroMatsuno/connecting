@@ -11,8 +11,9 @@
     <%= render partial: "tweet", locals: { tweet: tweet } %>
   <% end %>
 </div>
-<%= paginate(@tweets) %>
-
+<div class="page">
+  <%= paginate(@tweets) %>
+</div>
 
 
 

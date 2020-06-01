@@ -3,8 +3,11 @@
       <%= form.text_field :name, placeholder: "お店の名前" %>
     <div class ="form-group__image">
       <%= form.file_field :image, placeholder: "Image Url" %>
+      <%# アイコン選択で画像選択にする方法 %>
+      <%# <%= form.label :image, for: “file-input”, class: “fa fa-file-picture-o” do %> 
+      <%# <%= form.file_field :image, style: "display: none;" %>  
     </div>
-      <%= form.text_area :text, placeholder: "店舗情報（所在地・募集人員・待遇など）" , rows: "10" %>
+      <%= form.text_area :text, placeholder: "店舗情報（*必須「住所」　募集人員・待遇など）" , rows: "10" %>
       <%= form.submit "掲載する！"  %>
   </div>
 </form>

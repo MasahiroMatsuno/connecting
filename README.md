@@ -1,27 +1,56 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション名
+Connecting
 
-Things you may want to cover:
+# アプリケーション概要
 
-* Ruby version
 
-* System dependencies
+# 機能一覧
+●SASS記法を使ったマークアップ
 
-* Configuration
+●ユーザー登録、ログイン機能
 
-* Database creation
+●記事投稿機能
 
-* Database initialization
+●記事詳細機能
 
-* How to run the test suite
+●記事編集・削除機能
 
-* Services (job queues, cache servers, search engines, etc.)
+●画像ファイルアップロード機能
 
-* Deployment instructions
+●ユーザー詳細機能
 
-* ...
+●ページネーション
+
+●コメント機能
+
+●投稿検索機能
+
+●いいね機能
+
+●DM機能
+
+●フォローフォロワー機能
+
+●bootstrapを用いた実装
+
+●ajaxを使用した非同期処理
+
+
+# 使用技術
+## ●データベース
+MySQL 5.6.47
+
+## ●インフラ
+AWS EC2
+
+
+## デプロイ
+Capistranoによる自動デプロイ
+
+
+# connecting DB設計
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|

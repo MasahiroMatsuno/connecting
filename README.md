@@ -54,29 +54,86 @@ Capistranoによる自動デプロイ
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|email|string|null: false|
-|password|string|null: false|
-|nickname|string|null: false|
+|realname|text|null: false, default: ""|
+|email|string|null: false, default: ""|
+|encrypted_password|string|null: false, default: ""|
 ### Association
 - has_many :tweets
 - has_many :comments
+- has_many :follower, class_name: "Relationship", foreign_key: "follower_id",    dependent: :destroy 
+- has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy 
+- has_many :following_user, through: :follower, source: :followed 
+- has_many :follower_user, through: :followed, source: :follower 
+- has_many :messages, dependent: :destroy
+- has_many :entries, dependent: :destroy
+- has_many :tweets, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :liked_tweets, through: :likes, source: :tweet
+  
 
 ## tweetsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text||
-|text|text||
-|user_id|integer|null: false, foreign_key: true|
+|text|string||
+|name|string||
 ### Association
 - belongs_to :user
-- has_many :comments
+- has_many :comments 
+-  has_many :likes, dependent: :destroy
+-  has_many :liked_users, through: :likes, source: :user
+-  mount_uploader :image, ImageUploader
+
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|tweet_id|integer|null: false, foreign_key: true|
+|user_id|integer||
+|tweet_id|integer||
+|text|text||
 ### Association
 - belongs_to :tweet
 - belongs_to :user
+
+## relationshipsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|follower_id|integer||
+|followed_id|integer||
+### Association
+- belongs_to :follower, class_name: "User"
+- belongs_to :followed, class_name: "User"
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|foreign_key: true|
+|tweet|references|foreign_key: true|
+### Association
+- belongs_to :tweet
+- belongs_to :user
+
+## entriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|foreign_key: true|
+|room|references|foreign_key: true|
+### Association
+-  belongs_to :user
+- belongs_to :room
+
+## messagessテーブル
+|Column|Type|Options|
+|------|----|-------|
+
+### Association
+- belongs_to :user
+- belongs_to :room
+
+## roomsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
+### Association
+- has_many :messages, dependent: :destroy
+- has_many :entries, dependent: :destroy

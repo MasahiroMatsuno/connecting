@@ -108,6 +108,25 @@ Capistranoによる自動デプロイ
 |------|----|-------|
 |user|references|foreign_key: true|
 |tweet|references|foreign_key: true|
+>>>>>>> 5e78e74f63c37ea7f2f7b143661f8cdbe645ac5d
+### Association
+- belongs_to :tweet
+- belongs_to :user
+
+## relationshipsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|follower_id|integer||
+|followed_id|integer||
+### Association
+- belongs_to :follower, class_name: "User"
+- belongs_to :followed, class_name: "User"
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|foreign_key: true|
+|tweet|references|foreign_key: true|
 ### Association
 - belongs_to :tweet
 - belongs_to :user
@@ -138,3 +157,4 @@ Capistranoによる自動デプロイ
 ### Association
 - has_many :messages, dependent: :destroy
 - has_many :entries, dependent: :destroy
+

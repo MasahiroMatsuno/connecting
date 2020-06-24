@@ -125,7 +125,9 @@ Capistranoによる自動デプロイ
 ## messagessテーブル
 |Column|Type|Options|
 |------|----|-------|
-
+|user|references|foreign_key: true|
+|room|references|foreign_key: true|
+|content|text||
 ### Association
 - belongs_to :user
 - belongs_to :room

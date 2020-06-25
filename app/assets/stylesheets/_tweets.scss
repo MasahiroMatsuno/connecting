@@ -221,7 +221,6 @@ body {
 
 // 投稿詳細(tweets/show)
 .row {
-  
   margin-left: 140px;
   margin-top: 20px;
 }
@@ -248,6 +247,13 @@ body {
   width: 25%;
 }
 
+.comments {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#comment-text {
+  width: 400px;
+}
 
 // 新規投稿・編集画面（_form.html）
 form {

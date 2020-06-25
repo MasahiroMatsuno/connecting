@@ -70,6 +70,7 @@ MySQL 5.6.47
 
 ## ●インフラ
 AWS EC2
+AWS S3
 
 ## デプロイ
 Capistranoによる自動デプロイ

@@ -1,15 +1,43 @@
 # README
 
 # アプリケーション名
-Connecting
+<img width="1439" alt="スクリーンショット 2020-06-11 14 52 53" src="https://user-images.githubusercontent.com/64773002/85541532-0c1d2980-b653-11ea-8575-27e7a6b5166c.png">
+
+# DEMO
+・投稿一覧
+![demo投稿一覧](https://gyazo.com/1752acf1a2448a96dde2b304fb668cd2/raw)
+
+・記事詳細
+![demo投稿詳細](https://gyazo.com/4cc8e7e48cf37d83db5f86fd01946d0d/raw)
+
+・投稿者詳細
+![demo投稿者詳細](https://gyazo.com/fa224d40a399008a552a9fbda7f7935b/raw)
 
 # アプリケーション概要
+人と人と、店と店をつなぐチャットアプリです。
+投稿・いいね・コメント・ダイレクトメッセージなど店と働きたい人がやりとりができるような機能をつけています。
+
+# 本番環境(デプロイ先　＊ゲストログインができます)
+http://18.182.155.166/
+
+# 制作背景(意図)
+人手不足の店を救いたいという思いから作りました。
+私自身が好きだった個人飲食店が人手不足、継ぎ手不足で潰れてしまった体験から
+どうにかしてもっと簡単に店を知ってもらえる、人に来てもらえる仕組みを作りたいと思って
+作成をしました。
+
+# 工夫したポイント
+投稿の詳細にはいいね・コメント機能をつけてお客さんと店がやりとりできるように
+投稿者の詳細ページではフォローフォロワー機能とダイレクトメッセージ機能をつけて
+働きたい人と店がやりとりできるようなイメージで作成しました。
 
 
 # 機能一覧
 ●SASS記法を使ったマークアップ
 
 ●ユーザー登録、ログイン機能
+
+●ゲストログイン機能
 
 ●記事投稿機能
 
@@ -35,8 +63,6 @@ Connecting
 
 ●bootstrapを用いた実装
 
-●ajaxを使用した非同期処理
-
 
 # 使用技術
 ## ●データベース
@@ -48,6 +74,10 @@ AWS EC2
 ## デプロイ
 Capistranoによる自動デプロイ
 
+# 課題や今後実装したい機能
+●ajaxを使用した非同期処理
+
+●単体テスト
 
 # connecting DB設計
 ## usersテーブル
@@ -79,9 +109,9 @@ Capistranoによる自動デプロイ
 ### Association
 - belongs_to :user
 - has_many :comments 
--  has_many :likes, dependent: :destroy
--  has_many :liked_users, through: :likes, source: :user
--  mount_uploader :image, ImageUploader
+- has_many :likes, dependent: :destroy
+- has_many :liked_users, through: :likes, source: :user
+- mount_uploader :image, ImageUploader
 
 
 ## commentsテーブル
@@ -108,7 +138,6 @@ Capistranoによる自動デプロイ
 |------|----|-------|
 |user|references|foreign_key: true|
 |tweet|references|foreign_key: true|
->>>>>>> 5e78e74f63c37ea7f2f7b143661f8cdbe645ac5d
 ### Association
 - belongs_to :tweet
 - belongs_to :user
@@ -137,7 +166,7 @@ Capistranoによる自動デプロイ
 |user|references|foreign_key: true|
 |room|references|foreign_key: true|
 ### Association
--  belongs_to :user
+- belongs_to :user
 - belongs_to :room
 
 ## messagessテーブル

@@ -4,7 +4,14 @@
 <img width="1439" alt="スクリーンショット 2020-06-11 14 52 53" src="https://user-images.githubusercontent.com/64773002/85541532-0c1d2980-b653-11ea-8575-27e7a6b5166c.png">
 
 # DEMO
+・投稿一覧
+![demo投稿一覧](https://gyazo.com/1752acf1a2448a96dde2b304fb668cd2/raw)
 
+・記事詳細
+![demo投稿詳細](https://gyazo.com/4cc8e7e48cf37d83db5f86fd01946d0d/raw)
+
+・投稿者詳細
+![demo投稿者詳細](https://gyazo.com/fa224d40a399008a552a9fbda7f7935b/raw)
 
 # アプリケーション概要
 人と人と、店と店をつなぐチャットアプリです。

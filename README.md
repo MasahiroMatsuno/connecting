@@ -1,6 +1,6 @@
 # README
 
-# アプリケーション名
+# アプリケーション名　
 <img width="1439" alt="スクリーンショット 2020-06-11 14 52 53" src="https://user-images.githubusercontent.com/64773002/85541532-0c1d2980-b653-11ea-8575-27e7a6b5166c.png">
 
 # DEMO

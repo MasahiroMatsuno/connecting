@@ -151,22 +151,15 @@ body {
 // 投稿一覧(tweet/index)
 .tweets {
   width: 100%;
-  // height: 100vh;
-  // margin: 10px 10px;
   padding-left: 50px;
   display: flex;
   flex-wrap: wrap;
-  // background-image: url("email-pattern.png");
-  // background-size: cover;
-  // overflow: scroll;
 }
 
 .tweet {
-  // background-color: white;
   width: 30%;
   height: 70vh;
   margin-left: 25px;
-  // margin-bottom: 5px;
   &__name {
     font-size: 20px;
     margin-bottom: 10px;
@@ -191,10 +184,6 @@ body {
 .index__search {
   margin-left: 160px;
   width: 90%;
-  // &__btn {
-  //   width: 60%;
-  //   margin: 5px;
-  // }
 }
 
 .page {
@@ -202,19 +191,19 @@ body {
   margin: 10px;
 }
 .pagination>li>a {          
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+  border: none;    
+  color: #696969;  
 }
 
 /* 表示しているページ番号のデザイン */
 .pagination>.active>a {     
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 4px;     /*角を丸くする*/
+  background: #93c9ff;    
+  border-radius: 4px;     
 }
 
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {        
-  border-radius: 4px;    /*角を丸くする*/
+  border-radius: 4px;    
 }
 
 
@@ -289,22 +278,21 @@ form {
     // padding: 20px;
     height: 40px;
     display : inline-block;
-    border-radius : 5%;          /* 角丸       */
-    font-size : 1em;        /* 文字サイズ */
-    text-align: center;      /* 文字位置   */
+    border-radius : 5%; 
+    font-size : 1em;   
+    text-align: center;    
     width: 200px;
-    padding : 12px 62px;   /* 余白       */
-    background : whitesmoke;     /* 背景色     */
-    color : black;     /* 文字色     */
-    line-height : 1em;         /* 1行の高さ  */
-    transition  : .3s;         /* なめらか変化 */
-    box-shadow  : 6px 6px 3px #666666;  /* 影の設定 */
-    border : 2px solid #999999;    /* 枠の指定 */
+    padding : 12px 62px;  
+    background : whitesmoke;  
+    color : black;    
+    line-height : 1em;  
+    transition  : .3s;       
+    box-shadow  : 6px 6px 3px #666666;  
+    border : 2px solid #999999;   
     &:hover {
-      // background-color: lighten(gray, 10%);
-      box-shadow    : none;        /* カーソル時の影消去 */
-      color         : #999999;     /* 背景色     */
-      background    : #ffffff;     /* 文字色     */
+      box-shadow    : none;    
+      color         : #999999;    
+      background    : #ffffff;    
     }
   }
 }
@@ -376,20 +364,19 @@ form {
   margin: 10px;
   height: 40px;
   display : inline-block;
-  border-radius : 5%;          /* 角丸       */
-  text-align: center;      /* 文字位置   */
+  border-radius : 5%; 
+  text-align: center;  
   width: 200px;
-  padding : 12px 62px;   /* 余白       */
-  background : whitesmoke;     /* 背景色     */
-  color : black;     /* 文字色     */
-  transition  : .3s;         /* なめらか変化 */
-  box-shadow  : 6px 6px 3px #666666;  /* 影の設定 */
-  border : 2px solid #999999;    /* 枠の指定 */
+  padding : 12px 62px; 
+  background : whitesmoke;  
+  color : black; 
+  transition  : .3s;     
+  box-shadow  : 6px 6px 3px #666666;  
+  border : 2px solid #999999; 
   &:hover {
-    // background-color: lighten(gray, 10%);
-    box-shadow    : none;        /* カーソル時の影消去 */
-    color         : #999999;     /* 背景色     */
-    background    : #ffffff;     /* 文字色     */
+    box-shadow    : none;      
+    color         : #999999;  
+    background    : #ffffff;  
   }
 }
 

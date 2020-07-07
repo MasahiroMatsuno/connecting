@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_tweets, through: :likes, source: :tweet
+
+  validates :name, presence: true, uniqueness: true
   
   # ユーザーをフォローする
   def follow(user_id)

@@ -7,9 +7,6 @@
       <%# </li>  %>
         <li>
       <% if user_signed_in? %>
-        <%# <%= link_to "投稿者ページ", user_path(tweet.user.id) %> 
-
-
         <div class="dropdown">
           <!-- 切替ボタンの設定 -->
           <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,9 +23,6 @@
             <%# <% end %> 
           </ul>
         </div><!-- /.dropdown -->
-
-
-         <%# <%= link_to "投稿者", user_path(tweet.user), class: "btn btn-info" %> 
         </li>
       <% end %>
     </ul>
@@ -46,10 +40,6 @@
 
 
   <div class = 'tweet__image'>
-    <%# <div class="tweet__image" style="background-image: url(<%= tweet.image %>
-    <%# <% if tweet.content.present? %>
-      <%# <%= image_tag tweet.image.url, if tweet.image.present? %>
-    <%# <% end %>   
     <%= image_tag tweet.image.to_s, :size =>'298x298'%>
   </div>
   
@@ -59,9 +49,3 @@
   いいね
    (<%= tweet.liked_users.count %>)
 </div>
-
-<%# <%-if post.image.present?%>            
-  <%# <%= link_to post_path(post.id) do %>
-    <%# <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
-  <%# <% end %>     
-<%# <% end %>  

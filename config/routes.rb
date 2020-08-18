@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#index'
-  post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
-  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
+  post 'follow/:id' => 'relationships#follow', as: 'follow' 
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' 
   resources :homes, only: :index
   resources :tweets do
     resources :comments, only: :create
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
     resources :likes, only: [:create, :destroy]
   end
-  resources :users, :only => [:index, :show]
+  resources :users
   post '/users/guest_sign_in', to: 'users#new_guest'
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]
